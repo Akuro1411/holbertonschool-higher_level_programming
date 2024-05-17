@@ -10,6 +10,8 @@ string = "Last digit of "
 num = f"{element} is "
 last_digit = number % 10
 
+if element < 0:
+    last_digit = last_digit * -1
 if last_digit > 5:
     string_sec = "and is greater than 5"
 elif last_digit == 0:
