@@ -19,4 +19,4 @@ elif last_digit == 0:
 elif last_digit < 6 and last_digit != 0:
     string_sec = "and is less than 6 and not 0"
 
-print(string + num + f"{last_digit} " + string_sec )
+print(string + num + f"{last_digit} " + string_sec)
