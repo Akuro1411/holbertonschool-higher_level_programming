@@ -7,3 +7,4 @@ def uppercase(str):
             print(chr(number).format(i), end="")
         else:
             print(i, end="")
+    print('/n')
