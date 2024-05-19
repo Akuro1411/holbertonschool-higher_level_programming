@@ -23,4 +23,3 @@ if __name__ == '__main__':
             print(f"{a} * {b} = {mul(a, b)}")
         elif argv[2] == "/":
             print(f"{a} / {b} = {div(a, b)}")
-
