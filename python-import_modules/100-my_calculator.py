@@ -6,7 +6,7 @@ if __name__ == '__main__':
     operations = ["+", "-", "*", "/"]
     command_line = len(argv)
 
-    if command_line < 3:
+    if command_line <= 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
     else:
