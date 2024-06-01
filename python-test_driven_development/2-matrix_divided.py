@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""
+No need for document module
+"""
 def matrix_divided(matrix, div):
+    """
+    The functions divedes matrix's elements with diveder
+    """
     if type(div) not in [int, float]:
         raise TypeError("div must be a number")
     elif div == 0:
