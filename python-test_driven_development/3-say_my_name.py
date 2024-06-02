@@ -2,6 +2,8 @@
 """
 Module is documanted
 """
+
+
 def say_my_name(first_name, last_name=""):
     """
     Fucntion prints first and last names.
