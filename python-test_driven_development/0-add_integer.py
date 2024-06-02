@@ -2,6 +2,8 @@
 """
 No module is here
 """
+
+
 def add_integer(a, b=98):
     """
     Adding 2 integer or float number
