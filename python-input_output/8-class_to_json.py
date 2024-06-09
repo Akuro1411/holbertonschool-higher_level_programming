@@ -2,6 +2,8 @@
 """
 no module
 """
+
+
 def class_to_json(obj):
     """
     converts class instance to json object
