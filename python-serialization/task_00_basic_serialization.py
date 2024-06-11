@@ -18,5 +18,4 @@ def load_and_deserialize(filename):
     deserialize data and read it
     """
     with open(filename, "rb") as file:
-        data = file.read()
-        pickle.loads(data)
+        pickle.load(file)
