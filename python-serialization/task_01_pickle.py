@@ -25,4 +25,4 @@ class CustomObject:
                 return data
         except Exception:
             print("Error of deserialize")
-            return None
+        return None
