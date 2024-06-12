@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""
+pickle module is imported
+"""
+import pickle
+
+
 class CustomObject:
     def __init__(self, name, age, is_student):
         self.name = name
@@ -25,4 +31,4 @@ class CustomObject:
                 return data
         except Exception:
             print("Error of deserialize")
-        return None
+            return None
