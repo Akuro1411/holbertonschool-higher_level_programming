@@ -22,7 +22,7 @@ def status():
 
 @app.route('/users/<username>')
 def profile(username):
-    if username in users:
+    if username in list(users):
         return jsonify(users[username])
     else:
         return jsonify({"error": "User not found"})
