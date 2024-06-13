@@ -22,6 +22,12 @@ class myHandler(http.server.BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write("OK".encode())
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/plain')
+            self.end_headers()
+            data = {"version": "1.0", "description": "A simple API built with http.server"}
+            self.wfile.write(json.dumps(data).encode())
         else:
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
