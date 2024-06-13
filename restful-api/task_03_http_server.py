@@ -26,8 +26,14 @@ class myHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write("Undefined endpoint error".encode())
+            self.wfile.write("404 Not Found".encode())
 
-with socketserver.TCPServer(("", 8000), NewHandler) as httpd:
-    print(f"Serving at port {8000}")
-    httpd.serve_forever()
+port = 8000
+try:
+    server = http.server.HTTPServer(('', port), myHandler)
+    print('Started httpserver on port ', port)
+    server.serve_forever()
+
+except KeyboardInterrupt:
+    print('^C received, shutting down the web server')
+    server.socket.close()
