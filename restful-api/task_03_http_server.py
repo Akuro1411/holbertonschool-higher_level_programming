@@ -24,7 +24,7 @@ class myHandler(http.server.BaseHTTPRequestHandler):
             self.wfile.write("OK".encode())
         else:
             self.send_response(404)
-            self.send_header('Content-type', 'text/html')
+            self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write("Undefined endpoint error".encode())
 
