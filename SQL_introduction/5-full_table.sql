@@ -1,2 +1,2 @@
--- Gives all the data from table
-SELECT * FROM first_table
+-- Describes all the data from table
+DESC first_table;
