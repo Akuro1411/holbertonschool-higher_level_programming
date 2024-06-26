@@ -1,6 +1,6 @@
 -- Creates table if doesnt exist with given attributes
-CREATE TABLE IF NOT EXISTS FIRST_TABLE
+CREATE TABLE IF NOT EXISTS first_table
 (
-	ID INT,
-	NAME VARCHAR(256)
+	id INT,
+	name VARCHAR(256)
 );
