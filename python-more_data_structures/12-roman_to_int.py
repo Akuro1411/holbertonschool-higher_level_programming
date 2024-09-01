@@ -19,7 +19,7 @@ def roman_to_int(roman_string):
         while i < idx:
             sum -= roman_dict[roman_string[i]]
             i = i + 1
-    while idx < len(roman_number):
+    while idx < len(roman_string):
         sum += roman_dict[roman_string[idx]]
         idx += 1
     return sum
