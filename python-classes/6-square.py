@@ -36,6 +36,7 @@ class Square:
         :return: Returns the size of the square
         """
         return self.__size
+
     @size.setter
     def size(self, value):
         """
@@ -51,21 +52,24 @@ class Square:
     @property
     def position(self):
         """
-        :return: The position of square 
+        :return: The position of square
         """
         return self.__position
 
     @position.setter
     def position(self, value):
         """
-        :param value: 
-        :return: Returns nothing because it is setter 
+        :param value:
+        :return: Returns nothing because it is setter
         """
         if not isinstance(value, tuple) or len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        elif not isinstance(value[0], int) or not isinstance(value[1], int):
             raise TypeError("position must be a tuple of 2 positive integers")
         elif value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
+
     def my_print(self):
         """
         :return: No return, prints the square of #
