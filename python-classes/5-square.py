@@ -31,6 +31,7 @@ class Square:
         :return: Returns the size of the square
         """
         return self.__size
+
     @size.setter
     def size(self, value):
         """
