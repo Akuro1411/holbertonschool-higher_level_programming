@@ -16,18 +16,20 @@ def roman_to_int(roman_string):
             idx = index
 
     sum = 0
+    length = len(roman_string)
     if idx != 0:
         i = 0
         while i < idx:
             sum -= roman_dict[roman_string[i]]
             i = i + 1
-    while idx < len(roman_string):
-        normal_num = roman_dict[roman_string[idx]]
-        next_num = roman_dict[roman_string[idx + 1]]
-        if idx != len(roman_string) - 1 and normal_num < next_num:
-            sum += next_num - normal_num
-            idx += 2
-            continue
+    while idx < length:
+        num = roman_dict[roman_string[idx]]
+        if idx != length - 1:
+            next_num = roman_dict[roman_string[idx + 1]]
+            if idx != length - 1 and num < next_num:
+                sum += next_num - num
+                idx += 2
+                continue
         sum += roman_dict[roman_string[idx]]
         idx += 1
     return sum
