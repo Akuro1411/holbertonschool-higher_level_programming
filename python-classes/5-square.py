@@ -48,6 +48,8 @@ class Square:
         :return: No return, prints the square of #
         """
         edge = self.__size
+        if edge == 0:
+            print("")
         for i in range(edge):
             for j in range(edge):
                 print("#", end="")
