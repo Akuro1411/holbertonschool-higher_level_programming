@@ -22,10 +22,10 @@ def roman_to_int(roman_string):
             sum -= roman_dict[roman_string[i]]
             i = i + 1
     while idx < len(roman_string):
-        if idx != len(roman_string) - 1 and
-        roman_dict[roman_string[idx]] < roman_dict[roman_string[idx + 1]]:
-            sum += (roman_dict[roman_string[idx + 1]] -
-                    roman_dict[roman_string[idx]])
+        normal_num = roman_dict[roman_string[idx]]
+        next_num = roman_dict[roman_string[idx + 1]]
+        if idx != len(roman_string) - 1 and normal_num < next_num:
+            sum += next_num - normal_num
             idx += 2
             continue
         sum += roman_dict[roman_string[idx]]
