@@ -83,7 +83,7 @@ class Square:
         for i in range(edge):
             if self.__position[1] == 0:
                 for t in range(spaces):
-                    print("_", end="")
+                    print(" ", end="")
             for j in range(edge):
                 print("#", end="")
             print()
