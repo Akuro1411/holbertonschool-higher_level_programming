@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""0-rectangle, built for Holberton project 0x08 task 0.
 """
-
-
+The rectangle class is implemented
+"""
 class Rectangle:
-    """Empty class per task instructions, will be built upon in later tasks.
-    """
+    """It's empty for now"""
     pass
