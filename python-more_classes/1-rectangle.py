@@ -2,6 +2,8 @@
 """
 The rectangle class is implemented
 """
+
+
 class Rectangle:
     """Instantiate the rectangle with width and height"""
     def __init__(self, width=0, height=0):
