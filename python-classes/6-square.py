@@ -87,3 +87,4 @@ class Square:
             for j in range(edge):
                 print("#", end="")
             print()
+        print()
