@@ -19,8 +19,9 @@ class Rectangle:
         type(self).number_of_instances += 1
         self.print_symbol = Rectangle.print_symbol
         # self.__class__.number_of_instances += 1
-        # Both of them are same thing. But the upper one won't work with old style class instances because their type
-        # is not class (their type is instance)
+        # Both of them are same thing.
+        # But the upper one won't work with old style class instances.
+        # Because their type is not class (their type is instance)
 
     @property
     def width(self):
@@ -92,5 +93,6 @@ class Rectangle:
         return "Rectangle(2, 4)"
 
     def __del__(self):
-        Rectangle.number_of_instances -= 1  # You can also access the class variable through the class name
+        Rectangle.number_of_instances -= 1
+        # You can also access the class variable through the class name
         print("Bye rectangle...")
