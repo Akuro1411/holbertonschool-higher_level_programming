@@ -1,4 +1,9 @@
 #!/usr/bin/python3
+"""
+Defines the function for list of attributes
+"""
+
+
 def lookup(obj):
     """
     :param obj:
