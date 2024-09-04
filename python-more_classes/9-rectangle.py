@@ -117,7 +117,7 @@ class Rectangle:
     @classmethod
     def square(cls, size=0):
         """
-        :param size:
+        :param size: The new width and height
         :return: Returns the square with given size
         """
         return cls(size, size)
