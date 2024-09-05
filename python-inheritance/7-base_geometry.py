@@ -14,9 +14,9 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """
-        :param name: 
-        :param value: 
-        :return: Checks for the value is integer or not 
+        :param name:
+        :param value:
+        :return: Checks for the value is integer or not
         """
         if type(value) is not int:
             raise TypeError("{name} must be an integer".format(name=name))
