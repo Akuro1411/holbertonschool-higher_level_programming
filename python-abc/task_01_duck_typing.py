@@ -35,6 +35,8 @@ class Circle(Shape):
         """
         :return: Returns the perimeter of the circle
         """
+        if self.radius < 0:
+            self.radius *= -1
         return 2 * pi * self.radius
 
 
