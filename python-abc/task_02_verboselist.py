@@ -17,8 +17,9 @@ class VerboseList(list):
 
     def pop(self, __index=-1):
         """Pops the element for given index(default = -1)"""
-        print(f"Popped [{self[__index]}] from the list.")
+        number = self[__index]
         del self[__index]
+        print(f"Popped [{number}] from the list.")
 
     def remove(self, __value):
         """Removes the element which is equal to value"""
