@@ -23,7 +23,7 @@ class Shape(ABC):
 class Circle(Shape):
     """The circle class takes radius as an argument"""
     def __init__(self, radius):
-        self.radius = radius
+        self.radius = abs(radius)
 
     def area(self):
         """
