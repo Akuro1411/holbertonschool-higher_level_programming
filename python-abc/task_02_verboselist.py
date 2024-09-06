@@ -20,6 +20,7 @@ class VerboseList(list):
         number = self[__index]
         del self[__index]
         print(f"Popped [{number}] from the list.")
+        return number
 
     def remove(self, __value):
         """Removes the element which is equal to value"""
