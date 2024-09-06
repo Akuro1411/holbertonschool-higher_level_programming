@@ -15,7 +15,7 @@ class Shape(ABC):
         pass
 
     @abstractmethod
-    def perimetr(self):
+    def perimeter(self):
         """Blueprint method for figures"""
         pass
 
@@ -31,9 +31,9 @@ class Circle(Shape):
         """
         return pi * (self.radius ** 2)
 
-    def perimetr(self):
+    def perimeter(self):
         """
-        :return: Returns the perimetr of the circle
+        :return: Returns the perimeter of the circle
         """
         return 2 * pi * self.radius
 
@@ -50,18 +50,18 @@ class Rectangle(Shape):
         """
         return self.width * self.height
 
-    def perimetr(self):
+    def perimeter(self):
         """
-        :return: Returns the perimetr of the rectangle
+        :return: Returns the perimeter of the rectangle
         """
         return (self.width + self.height) * 2
 
 
 def shape_info(obj):
-    """Prints the area and perimetr of the given object
+    """Prints the area and perimeter of the given object
        This function implemented for duck typing
     """
     area = obj.area()
-    perimetr = obj.perimetr()
+    perimeter = obj.perimeter()
     print(f"Area: {area}")
-    print(f"Perimetr: {perimetr}")
+    print(f"Perimetr: {perimeter}")
