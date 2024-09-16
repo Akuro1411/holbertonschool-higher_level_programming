@@ -8,7 +8,7 @@ def append_write(filename="", text=""):
     """
     opens the file and appends the text
     """
-    with open(filename, "a") as new_file:
-        file = new_file.write(text)
-    i = len(text)
-    return i
+    def append_write(filename="", text=""):
+    with open(filename, encoding="UTF-8", mode="a") as file:
+        file.write(text)
+    return len(text)
