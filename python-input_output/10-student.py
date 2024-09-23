@@ -17,11 +17,8 @@ class Student:
         """
         changes to dict format
         """
-        student = Student(self.first_name, self.last_name, self.age).__dict__
+        new_obj = self.__dict__
         if attrs is not None:
-            new_dict = {}
-            for i in attrs:
-                if i in student:
-                    new_dict[i] = student[i]
+            new_dict = {i: new_obj[i] for i in attrs if i in new_obj}
             return new_dict
-        return student
+        return new_obj
