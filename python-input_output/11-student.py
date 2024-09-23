@@ -30,5 +30,5 @@ class Student:
         """
         changes public attributes
         """
-        for key, value in json.items():
-            setattr(self, key, value)
+        for i in list(json):
+            setattr(self, i, json[i])
