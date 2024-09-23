@@ -17,5 +17,4 @@ class Student:
         """
         changes to dict format
         """
-        student = Student(self.first_name, self.last_name, self.age)
-        return student.__dict__
+        return self.__dict__
