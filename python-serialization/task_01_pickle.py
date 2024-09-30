@@ -22,6 +22,7 @@ class CustomObject:
                 pickle.dump(self, file)
         except IOError:
             return None
+
     @classmethod
     def deserialize(cls, filename):
         try:
