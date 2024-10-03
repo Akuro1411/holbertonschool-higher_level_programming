@@ -20,7 +20,7 @@ class CustomObject:
         try:
             with open(filename, mode="wb") as file:
                 pickle.dump(self, file)
-        except IOError:
+        except Exception:
             return None
 
     @classmethod
