@@ -1,21 +1,24 @@
 #!/usr/bin/env python3
+"""
+The csv and json modules are imported for serialization
+"""
 import csv, json
 
 
 def convert_csv_to_json(filename):
+    """
+    :param file_name: 
+    :return: Converts the data to json format
+    """
     try:
-        arr = []
-        with open(filename, "r") as file:
+        with open(file_name, mode="r", encoding="UTF-8") as file:
             data = csv.DictReader(file)
-            print(data)
+            data_list = []
             for i in data:
-                # print(i)
-                arr.append(i)
-            print(arr)
-            f = open("data.json", "w")
-            json.dump(arr, f)
-            f.close()
-        return True
-    except Exception as exc:
-        print(f"We have an error like {exc}")
+                data_list.append(i)
+
+        with open("data.json", mode="w", encoding="UTF-8") as json_file:
+            json.dump(data_list, fp=json_file)
+    except FileNotFoundError:
         return False
+    return True
