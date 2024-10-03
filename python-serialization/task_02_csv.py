@@ -2,12 +2,13 @@
 """
 The csv and json modules are imported for serialization
 """
-import csv, json
+import csv
+import json
 
 
 def convert_csv_to_json(filename):
     """
-    :param file_name: 
+    :param file_name:
     :return: Converts the data to json format
     """
     try:
@@ -16,9 +17,8 @@ def convert_csv_to_json(filename):
             data_list = []
             for i in data:
                 data_list.append(i)
-
+            return True
         with open("data.json", mode="w", encoding="UTF-8") as json_file:
             json.dump(data_list, fp=json_file)
     except FileNotFoundError:
         return False
-    return True
