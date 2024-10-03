@@ -12,7 +12,7 @@ def convert_csv_to_json(filename):
     :return: Converts the data to json format
     """
     try:
-        with open(file_name, mode="r", encoding="UTF-8") as file:
+        with open(filename, mode="r", encoding="UTF-8") as file:
             data = csv.DictReader(file)
             data_list = []
             for i in data:
