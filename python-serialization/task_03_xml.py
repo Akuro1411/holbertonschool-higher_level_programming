@@ -10,20 +10,19 @@ def serialize_to_xml(dictionary, filename):
     serializes given data to xml and writes to file
     """
     root = ET.Element('data')
-    for key, value in dictionary.items():
-        child = ET.SubElement(root, key)
-        child.text = str(value)
-    xml_tree = ET.ElementTree(root)
-    xml_tree.write(filename)
-
+    for i in dictionary:
+        element = ET.SubElement(root, i)
+        element.text = dictionary[i]
+    data = ET.ElementTree(root)
+    data.write(filename)
 
 def deserialize_from_xml(filename):
     """
     deserializes given file to data
     """
     tree = ET.parse(filename)
+    dictionary = dict()
     root = tree.getroot()
-    dictionary = {}
-    for child in root:
-        dictionary[child.tag] = child.text
+    for i in root:
+        dictionary[i.tag] = i.text
     return dictionary
