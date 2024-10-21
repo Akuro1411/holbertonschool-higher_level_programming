@@ -8,35 +8,31 @@ import csv
 
 def fetch_and_print_posts():
     """
-    fetchs and prints data
+    fetchs and prints posts
     """
-    request = requests.get("https://jsonplaceholder.typicode.com/posts")
-    status_code = request.status_code
-    print(f"Status Code: {status_code}")
-    if status_code == 200:
-        data = request.json()
-        for i in data:
-            print(i['title'])
-
+    url = "https://jsonplaceholder.typicode.com/posts"
+    r = requests.get(url)
+    d = r.json()
+    print(f"Status code: {r.status_code}")
+    for i in d:
+        print(i['title'])
 
 def fetch_and_save_posts():
     """
-    saves the posts to the csv file
+    saves the posts to the file
     """
-    request = requests.get("https://jsonplaceholder.typicode.com/posts")
-    status_code = request.status_code
-    file_name = "posts.csv"
-    if status_code == 200:
-        data = request.json()
-        keys = ["id", "title", "body"]
-        arr = []
-        for i in data:
-            dictionary = {}
-            for j in keys:
-                dictionary[j] = i[j]
-            arr.append(dictionary)
-
-        with open(file_name, 'w', encoding='UTF-8') as file:
-            writer = csv.DictWriter(file, fieldnames=keys)
+    url = "https://jsonplaceholder.typicode.com/posts"
+    r = requests.get(url)
+    head_titles = ["id", "title", "body"]
+    if r.status_code == 200:
+        with open("posts.csv", "w", encoding="UTF-8") as file:
+            writer = csv.DictWriter(file, fieldnames=head_titles)
             writer.writeheader()
-            writer.writerows(arr)
+            d = r.json()
+            for i in d:
+                row = {
+                    "id": i["id"],
+                    "title": i["title"],
+                    "body": i["body"]
+                }
+                writer.writerow(row)
