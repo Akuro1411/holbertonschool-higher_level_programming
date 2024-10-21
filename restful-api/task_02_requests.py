@@ -13,7 +13,7 @@ def fetch_and_print_posts():
     url = "https://jsonplaceholder.typicode.com/posts"
     r = requests.get(url)
     d = r.json()
-    print(f"Status code: {r.status_code}")
+    print(f"Status Code: {r.status_code}")
     for i in d:
         print(i['title'])
 
