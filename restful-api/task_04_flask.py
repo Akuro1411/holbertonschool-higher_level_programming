@@ -29,9 +29,6 @@ def get_user_info(username):
     if users[username]:
         return jsonify(users[username])
     else:
-        return jsonify({"error": "User not found"})    if users[username]:
-        return jsonify(users[username])
-    else:
         return jsonify({"error": "User not found"})
 
 
