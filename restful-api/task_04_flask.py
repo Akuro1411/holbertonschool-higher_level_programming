@@ -3,9 +3,7 @@ from flask import jsonify
 from flask import request
 app = flask.Flask(__name__)
 
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-         "arnold": {"name": "Arnold", "age": 30, "city": "Los Angeles"}
-         }
+users = {}
 
 
 @app.route('/')
@@ -26,7 +24,7 @@ def status():
 @app.route('/user/<username>')
 def get_user_info(username):
     if username not in users:
-        return {"error": "User not found"}
+        return jsonify({"error": "User not found"})
     return jsonify(users[username])
 
 
@@ -42,4 +40,3 @@ def add_user():
 
 if __name__ == "__main__":
     app.run(port=5000)
-
