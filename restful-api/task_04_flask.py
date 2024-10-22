@@ -26,10 +26,9 @@ def status():
 
 @app.route('/user/<username>')
 def get_user_info(username):
-    if username not in users:
-        return jsonify({"error": "User not found"})
-    return jsonify(users[username])
-
+    if users[username]:
+        return jsonify(users[username])
+    return jsonify({"error": "User not found"})
 
 @app.route('/add_user', methods=["POST"])
 def add_user():
