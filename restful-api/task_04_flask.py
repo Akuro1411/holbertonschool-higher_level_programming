@@ -13,7 +13,10 @@ def home():
 
 @app.route('/data')
 def user_list():
-    return jsonify(users)
+    arr = []
+    for username in users:
+        arr.append(username)
+    return jsonify(arr)
 
 
 @app.route('/status')
@@ -40,3 +43,4 @@ def add_user():
 
 if __name__ == "__main__":
     app.run(port=5000)
+
