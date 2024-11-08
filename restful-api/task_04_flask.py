@@ -1,40 +1,46 @@
 #!/usr/bin/env python3
-import flask
 from flask import Flask, jsonify, request
-
 app = Flask(__name__)
 
 users = {}
+
+
 @app.route('/')
 def home():
     return 'Welcome to the Flask API!'
 
-@app.route('/data')
-def data():
-    arr = []
-    for username in users:
-        arr.append(username)
+
+@app.route('/data', methods=['GET'])
+def user_list():
+    arr = [i for i in users.keys()]
     return jsonify(arr)
 
-@app.route('/status')
-def status():
-    return 'OK'
 
-@app.route('/users/<username>')
+@app.route('/status', methods=['GET'])
+def return_ok():
+    return 'OK', 200
+
+
+@app.route('/users/<username>', methods=['GET'])
 def get_user(username):
-    if users[username]:
-        return jsonify(users[username])
-    else:
+    if username not in users:
         return jsonify({"error": "User not found"})
+    return jsonify(users[username])
 
-@app.route("/add_user", methods=["POST"])
+
+@app.route('/add_user', methods=['POST'])
 def add_user():
-    new_user = request.get_json()
-    user = new_user.get("username")
-    if not user:
-        return jsonify({"error": "Username is required"}), 400
-    users[user] = new_user
-    return jsonify({"message": "User added", "user": new_user}), 201
+    data = request.get_json()
+    if 'username' not in data:
+        return jsonify({"error": "Username is required"})
+    username = data.get('username')
+    users[username] = data
+    response_dict = {
+        "message": "User added",
+        "user": users[username]
+    }
+    return jsonify(response_dict), 201
 
-if __name__ == "__main__":
-    app.run()
+
+if __name__ == '__main__':
+    app.run(port=5000)
