@@ -1,23 +1,15 @@
 #!/usr/bin/python3
-"""Module for Selecting states"""
-
 if __name__ == '__main__':
-    from sys import argv
     import MySQLdb
+    from sys import argv
 
-    db = MySQLdb.connect(
-        user=argv[1],
-        password=argv[2],
-        database=argv[3]
-    )
+    db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
 
-    cursor.execute('SELECT * FROM states')
+    cursor.execute("Select * from states")
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
 
-    for state in cursor.fetchall():
-        print(state)
-
-    if cursor:
-        cursor.close()
-    if db:
-        db.close()
+    cursor.close()
+    db.close()
