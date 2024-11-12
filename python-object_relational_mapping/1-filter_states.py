@@ -1,24 +1,19 @@
 #!/usr/bin/python3
-"""Module for Selecting states starting with N"""
+"""MySQLdb and sys are imported"""
+
 
 if __name__ == '__main__':
-    from sys import argv
     import MySQLdb
+    from sys import argv
 
-    db = MySQLdb.connect(
-        user=argv[1],
-        password=argv[2],
-        database=argv[3]
-    )
+    db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
 
-    cursor.execute('SELECT * FROM states ORDER BY id')
+    cursor.execute("Select * from states where name like %s order by id", ('N%',))
+    rows = cursor.fetchall()
+    for row in rows:
+        # it could be written with conditional statement too
+        print(row)
 
-    for state in cursor.fetchall():
-        if state[1][0] == 'N':
-            print(state)
-
-    if cursor:
-        cursor.close()
-    if db:
-        db.close()
+    cursor.close()
+    db.close()
