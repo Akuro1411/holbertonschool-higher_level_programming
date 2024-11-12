@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Flask app modules
 from flask import Flask, request, jsonify
 # Basic authentication modules
