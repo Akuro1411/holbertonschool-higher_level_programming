@@ -1,25 +1,20 @@
 #!/usr/bin/python3
-"""Module for Selecting cities"""
+"""MySQLdb and sys are imported"""
+
 
 if __name__ == '__main__':
-    from sys import argv
     import MySQLdb
+    from sys import argv
 
-    db = MySQLdb.connect(
-        user=argv[1],
-        password=argv[2],
-        database=argv[3]
-    )
+    db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
+    query = "select c.id, c.name, s.name from cities c \
+    join states s where c.state_id=s.id"
 
-    cursor.execute('SELECT c.id, c.name, s.name \
-                    FROM cities AS c \
-                    INNER JOIN states AS s ON s.id = c.state_id ')
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
 
-    for state in cursor.fetchall():
-        print(state)
-
-    if cursor:
-        cursor.close()
-    if db:
-        db.close()
+    cursor.close()
+    db.close()
