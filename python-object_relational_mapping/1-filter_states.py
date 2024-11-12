@@ -9,11 +9,12 @@ if __name__ == '__main__':
     db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
 
-    cursor.execute("Select * from states where name like 'N%' order by id")
+    cursor.execute("Select * from states order by id")
     rows = cursor.fetchall()
     for row in rows:
         # it could be written with conditional statement too
-        print(row)
+        if row[1][0] == 'N':
+            print(row)
 
     cursor.close()
     db.close()
