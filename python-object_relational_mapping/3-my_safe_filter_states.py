@@ -1,27 +1,19 @@
 #!/usr/bin/python3
-"""Module for Selecting states where name equals argument(safe)"""
+"""MySQLdb and sys are imported"""
+
 
 if __name__ == '__main__':
-    from sys import argv
     import MySQLdb
+    from sys import argv
 
-    db = MySQLdb.connect(
-        user=argv[1],
-        password=argv[2],
-        database=argv[3]
-    )
-
+    db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
+    query = "Select * from states where binary name=%s order by id"
 
-    cursor.execute("SELECT * \
-                    FROM `states` \
-                    ORDER BY id")
+    cursor.execute(query, (argv[4],))
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
 
-    for state in cursor.fetchall():
-        if state[1] == argv[4]:
-            print(state)
-
-    if cursor:
-        cursor.close()
-    if db:
-        db.close()
+    cursor.close()
+    db.close()
