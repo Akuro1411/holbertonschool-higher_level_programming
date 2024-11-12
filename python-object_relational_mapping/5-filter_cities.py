@@ -1,29 +1,22 @@
 #!/usr/bin/python3
-"""Module for Selecting cities"""
+"""MySQLdb and sys are imported"""
+
 
 if __name__ == '__main__':
-    from sys import argv
     import MySQLdb
+    from sys import argv
 
-    db = MySQLdb.connect(
-        user=argv[1],
-        password=argv[2],
-        database=argv[3]
-    )
+    db = MySQLdb.connect(user=argv[1], password=argv[2], database=argv[3])
     cursor = db.cursor()
+    query = "select c.id, c.name, s.name from cities c \
+    join states s where c.state_id=s.id and binary s.name=%s order by c.id"
 
-    cursor.execute('SELECT c.name, s.name \
-                    FROM cities AS c \
-                    INNER JOIN states AS s ON s.id = c.state_id ')
-
-    cities = []
-    for city in cursor.fetchall():
-        if city[1] == argv[4]:
-            cities.append(city[0])
-
-    print(", ".join(cities))
-
-    if cursor:
-        cursor.close()
-    if db:
-        db.close()
+    cursor.execute(query, (argv[4], ))
+    rows = cursor.fetchall()
+    for index, row in enumerate(rows):
+        if index != len(rows) - 1:
+            print(row[1], end=", ")
+        else:
+            print(row[1])
+    cursor.close()
+    db.close()
