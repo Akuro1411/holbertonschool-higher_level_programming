@@ -15,6 +15,6 @@ if __name__ == '__main__':
     rows = cursor.fetchall()
     cities = [row[1] for row in rows if row[2] == argv[4]]
     print(", ".join(cities))
-    
+
     cursor.close()
     db.close()
