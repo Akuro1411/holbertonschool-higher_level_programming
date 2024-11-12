@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-sk app modules
+# Flask app modules
 from flask import Flask, request, jsonify
 # Basic authentication modules
 from werkzeug.security import generate_password_hash, check_password_hash
