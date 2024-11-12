@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Flask app modules
+sk app modules
 from flask import Flask, request, jsonify
 # Basic authentication modules
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -28,7 +28,7 @@ def verify_password(username, password):
     checked_user = users.get(username)
     # If you define user password before conditional statement it will give error, because of user can be none and you \
     # will check for none type object's password
-    if checked_user and check_password_hash(checked_user['password'], password):
+    if username in users and check_password_hash(checked_user['password'], password):
         return users[username]
 
 
@@ -43,7 +43,7 @@ def login_jwt():
     username = request.json.get('username')
     password = request.json.get('password')
     current_user = users.get(username)
-    if current_user and check_password_hash(current_user['password'], password):
+    if username in users and check_password_hash(current_user['password'], password):
         new_token = create_access_token(identity=current_user)
         return jsonify(access_token=new_token)
     return jsonify({"msg": "Bad username or password"}), 401
@@ -92,4 +92,3 @@ def handle_needs_fresh_token_error(err):
 
 if __name__ == '__main__':
     app.run()
-
