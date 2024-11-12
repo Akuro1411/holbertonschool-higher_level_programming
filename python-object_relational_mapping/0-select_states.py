@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""MySQLdb and sys are imported"""
+
+
 if __name__ == '__main__':
     import MySQLdb
     from sys import argv
