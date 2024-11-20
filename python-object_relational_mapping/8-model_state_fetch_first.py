@@ -14,8 +14,7 @@ if __name__ == "__main__":
     session = Session()
     Base.metadata.create_all(engine)
     row = session.query(State).first()
-    if row.id is None:
+    if row is None:
         print("Nothing")
-        print()
     else:
         print(f"{row.id}: {row.name}")
