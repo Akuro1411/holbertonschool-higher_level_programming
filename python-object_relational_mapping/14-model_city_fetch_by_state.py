@@ -1,37 +1,22 @@
 #!/usr/bin/python3
-"""Module for fetching city by state"""
-
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_city import Base, City
-from model_state import State
+"""Modules for sqlalchemy"""
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 from sys import argv
+from model_state import Base, State
+from model_city import City
 
-# Run only when executed
+
 if __name__ == "__main__":
-
-    # Engine creation with mysql and mysqldb DBAPI
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(argv[1], argv[2], argv[3]))
-
-    # Creating all classes in DB
-    Base.metadata.create_all(engine)
-
-    # Creating Session and its instance
+    mysql = 'mysql+mysqldb://{}:{}@localhost/{}'
+    engine = create_engine(mysql.format(argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
+    Base = declarative_base()
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    # The Query
-    query = (
-        session.query(State, City)
-        .join(City, State.id == City.state_id)
-        .order_by(City.id)
-        .all())
-
-    # Printing the result
-    for state, city in query:
-        print("{}: ({}) {}".format(state.name, city.id, city.name))
-
-    # Closing the session
-    if session:
-        session.close()
+    Base.metadata.create_all(engine)
+    # You shouldn't write on clause,
+    # because there 1 foreign key and orm know how to join tables.
+    rows = session.query(State, City).join(City).all()
+    for s, c in rows:
+        print(f"{s.name}: ({c.id}) {c.name}")
