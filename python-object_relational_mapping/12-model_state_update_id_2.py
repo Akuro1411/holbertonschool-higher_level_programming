@@ -1,31 +1,18 @@
 #!/usr/bin/python3
-"""
-Module for New Mexico update.
-"""
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+"""Modules for sqlalchemy"""
+from sqlalchemy import Column, Integer, String, create_engine
+from sqlalchemy.orm import declarative_base, sessionmaker
 from sys import argv
-
 from model_state import Base, State
 
-# Run only executed
 if __name__ == "__main__":
-
-    # Engine creation with mysql and mysqldb DBAPI
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost:3306/{}"
-                           .format(argv[1], argv[2], argv[3]))
-
-    # Creating all classes in DB
-    Base.metadata.create_all(engine)
-
-    # Creating Session and its instance
+    mysql = 'mysql+mysqldb://{}:{}@localhost/{}'
+    engine = create_engine(mysql.format(argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
+    Base = declarative_base()
     Session = sessionmaker(bind=engine)
     session = Session()
-
-    # Changing state name to New Mexico
-    session.query(State).filter(State.id == 2).update({"name": "New Mexico"})
+    Base.metadata.create_all(engine)
+    row = session.query(State).filter_by(id=2).first()
+    row.name = "New Mexico"
     session.commit()
-
-    # Closing the session
-    if session:
-        session.close()
