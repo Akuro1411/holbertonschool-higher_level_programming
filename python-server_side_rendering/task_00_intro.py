@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """There is no module here"""
 import os.path
 
@@ -19,7 +20,9 @@ def generate_invitations(default_template, attendees):
                     template = template.replace(f"{{{key}}}", obj[key])
                 idx = attendees.index(obj)
                 new = template
-                if not os.path.exists(f"output_{idx}.txt"):
+                try:
+                    os.path.exists(f"output_{idx}.txt")
+                except FileNotFoundError:
                     with open(f"output_{idx}.txt", "w") as f:
                         f.write(new)
         except IndexError:
