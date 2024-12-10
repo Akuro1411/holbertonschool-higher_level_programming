@@ -23,10 +23,15 @@ def contact():
 
 @app.route('/items')
 def items_func():
-    with open("items.json") as file:
-	items = json.load(file)
-        item = items["items"]
+    try:
+        with open("item.json") as file:
+            items = json.load(file)
+            item = items["items"]
+    except Exception:
+        item = []
     return render_template('items.html', item=item), 200
+
 
 if __name__ == "__main__":
     app.run()
+
