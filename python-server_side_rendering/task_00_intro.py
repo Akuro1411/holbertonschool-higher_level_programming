@@ -1,5 +1,5 @@
-#!/usr/bin/python3
 """There is no module here"""
+import os.path
 
 
 def generate_invitations(default_template, attendees):
@@ -19,8 +19,9 @@ def generate_invitations(default_template, attendees):
                     template = template.replace(f"{{{key}}}", obj[key])
                 idx = attendees.index(obj)
                 new = template
-                with open(f"output_{idx}.txt", "w") as f:
-                    f.write(new)
+                if not os.path.exists(f"output_{idx}.txt"):
+                    with open(f"output_{idx}.txt", "w") as f:
+                        f.write(new)
         except IndexError:
             return "No data provided, no output files generated."
     except Exception:
