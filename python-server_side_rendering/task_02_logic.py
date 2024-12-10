@@ -29,7 +29,7 @@ def items_func():
             item = items["items"]
     except Exception:
         item = []
-    return render_template('items.html', item=item), 200
+    return render_template('items.html', item=item)
 
 
 if __name__ == "__main__":
