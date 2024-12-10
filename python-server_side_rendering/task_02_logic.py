@@ -1,15 +1,13 @@
-#!/usr/bin/python3
-"""Flask is imported for app"""
+from flask import Flask, render_template, jsonify
 import json
-
-from flask import render_template, Flask
+import os
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def run_app():
-    return render_template("index.html")
+@app.route('/')
+def home():
+    return render_template('index.html')
 
 
 @app.route('/about')
@@ -22,16 +20,16 @@ def contact():
     return render_template('contact.html')
 
 @app.route('/items')
-def items_func():
+def items():
     try:
-        with open("item.json") as file:
-            items = json.load(file)
-            item = items["items"]
-    except Exception:
-        item = []
-    return render_template('items.html', item=item)
+        with open('items.json') as f:
+            data = json.load(f)
+        items = data.get('items', [])
+        return render_template('items.html', items=items)
+    except FileNotFoundError:
+        return "Items file not found", 404
+    except json.JSONDecodeError:
+        return "Error decoding JSON", 500
 
-
-if __name__ == "__main__":
-    app.run()
-
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
