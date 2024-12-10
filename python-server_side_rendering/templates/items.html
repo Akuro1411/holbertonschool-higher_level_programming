@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Items List</title>
+</head>
+<body>
+    {% for item in items %}
+    <ul>
+        {% for i in items[item] %}
+            <li>{{i}}</li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</body>
+</html>
