@@ -2,7 +2,7 @@
 """Flask is imported for app"""
 import json
 import csv
-from flask import render_template, Flask, request
+from flask import render_template, Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -40,7 +40,7 @@ def products_finder():
             data = json.load(file)
             for row in data['json']:
                 if row["id"] == int(id):
-                    return row
+                    return jsonify(row)
             error_id = "Product not found"
             return render_template("product_display.html", error_id=error_id)
     source = request.args.get("source")
