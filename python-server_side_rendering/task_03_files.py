@@ -32,9 +32,9 @@ def items_func():
     return render_template('items.html', item=item)
 
 
-@app.route('/products/', defaults={'id': None})
-@app.route('/products/<id>')
-def products_finder(id):
+@app.route('/products')
+def products_finder():
+    id = request.args.get("id")
     if id:
         with open("products.json") as file:
             data = json.load(file)
@@ -63,3 +63,4 @@ def products_finder(id):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
