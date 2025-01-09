@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-import doctest
-"""Doctest module is imported for testing"""
+"""No module is imported for testing"""
 
 
 def add_integer(a, b=98):
@@ -11,6 +10,3 @@ def add_integer(a, b=98):
         raise TypeError("b must be an integer")
 
     return round(a) + round(b)
-
-
-doctest.testfile("data.txt")
