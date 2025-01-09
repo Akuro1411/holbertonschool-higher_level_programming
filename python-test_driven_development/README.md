@@ -1,2 +1,3 @@
-Hello!
-This directory contains files about doc. tests in python!!!
+Hello! </br>
+Description: This folder contains files about doctests in python </br>
+Author: Nahid Isayev

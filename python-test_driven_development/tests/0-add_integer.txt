@@ -1,53 +1,39 @@
-######################################
-#   Test file for 0-add_integer.py   #
-######################################
+The ``0-add_integer`` module
+======================
 
---------------------------------------
+Using ``add_integer``
+-------------------
 
->>> add_integer = __import__('0-add_integer').add_integer
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer`` module:
 
->>> add_integer(1, 2)
-3
+    >>> from 0-add_integer import add_integer # doctest: +NORMALIZE_WHITESPACE
 
->>> add_integer(100, -2)
-98
+Now use it:
 
->>> add_integer(2)
-100
+    >>> add_integer(5, 15)
+    20
 
->>> add_integer(100.3, -2)
-98
+    >>> add_integer(-5, 15)
+    10
 
->>> add_integer(8.2, -2.0)
-6
 
->>> add_integer("salam", 5)
-Traceback (most recent call last):
-TypeError: a must be an integer
+    >>> add_integer(True, 15) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
 
->>> add_integer(8.762378691696962, 5)
-13
+    >>> add_integer("Hello", 15) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
 
->>> add_integer()
-Traceback (most recent call last):
-  File "./0-add_integer.py", line 24, in <module>
-    add_integer()
-TypeError: add_integer() missing 1 required positional argument: 'a'
+    >>> add_integer(5, True) # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
 
->>> add_integer(float('inf'), float('inf'))
-Traceback (most recent call last):
-  File "./0-add_integer.py", line 16, in add_integer
-    a = int(a)
-        ^^^^^^
-OverflowError: cannot convert float infinity to integer
-
->>> add_integer(2)
-100
-
->>> math = __import__("math")
->>> add_integer(2, math.nan)
-Traceback (most recent call last):
-  File "./0-add_integer.py", line 18, in add_integer
-    b = int(b)
-        ^^^^^^
-ValueError: cannot convert float NaN to integer
+    >>> add_integer(5, "Hello") # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
