@@ -42,3 +42,6 @@ Now use it:
 
     >>> add_integer(5)
     103
+
+    >>> add_integer(int("5"), int("15"))
+    20
