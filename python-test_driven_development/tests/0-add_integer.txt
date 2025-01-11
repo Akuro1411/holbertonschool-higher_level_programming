@@ -56,3 +56,6 @@ Now use it:
         ...
     OverflowError: (34, 'Numerical result out of range')
 
+
+    >>> add_integer(8.762378691696962, 5)
+    13
