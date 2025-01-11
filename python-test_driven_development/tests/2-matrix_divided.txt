@@ -15,7 +15,7 @@ Now use it:
     [[1.0, 2.0, 3.0]]
 
 
-    >>> matrix_divided([[2, 4, "Hello"]], 2) # doctest: +ELLIPSIS
+    >>> matrix_divided([[3, "9"], [15, 3]], 3) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
     TypeError: matrix must be a matrix (list of lists) of integers/floats

@@ -4,9 +4,8 @@
 
 def matrix_divided(matrix, div):
     """Function should divide matrix with given division number"""
-    type_list = []
-    for row in matrix:
-        type_list = [n for n in row if type(n) not in [float, int]]
+    m = matrix
+    type_list = [n for r in m for n in r if type(n) not in [float, int]]
     size_list = [len(row) for row in matrix if len(row) != len(matrix[0])]
 
     if type_list:
