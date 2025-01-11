@@ -6,6 +6,8 @@ Using ``add_integer``
 
 This is an example text file in reStructuredText format.  First import
 ``add_integer`` from the ``0-add_integer`` module:
+    :return: int
+
 
     >>> add_integer = __import__("0-add_integer").add_integer # doctest: +NORMALIZE_WHITESPACE
 
@@ -37,3 +39,6 @@ Now use it:
     Traceback (most recent call last):
         ...
     TypeError: b must be an integer
+
+    >>> add_integer(5)
+    103
