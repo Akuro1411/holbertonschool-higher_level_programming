@@ -4,12 +4,14 @@
 
 def matrix_divided(matrix, div):
     """Function should divide matrix with given division number"""
-    
-    type_list = [number for row in matrix for number in row if type(number) not in [float, int]]
+    type_list = []
+    for row in matrix:
+        type_list = [n for n in row if type(n) not in [float, int]]
     size_list = [len(row) for row in matrix if len(row) != len(matrix[0])]
-    
+
     if type_list:
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        raise TypeError("matrix must be a matrix (list of lists) \
+of integers/floats")
     elif size_list:
         raise TypeError("Each row of the matrix must have the same size")
 
@@ -18,5 +20,7 @@ def matrix_divided(matrix, div):
     elif div == 0:
         raise ZeroDivisionError("division by zero")
 
-    new_mat = list(map(lambda row:  list(map(lambda number: round(number / div, 2), row)), matrix))
+    def func(number): return round(number / div, 2)
+
+    new_mat = list(map(lambda row:  list(map(func, row)), matrix))
     return new_mat
