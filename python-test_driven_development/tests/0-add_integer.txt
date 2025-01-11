@@ -43,5 +43,10 @@ Now use it:
     >>> add_integer(5)
     103
 
+    >>> add_integer() # doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
+
     >>> add_integer(int("5"), int("15"))
     20
