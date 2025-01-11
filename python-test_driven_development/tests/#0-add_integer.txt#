@@ -60,7 +60,5 @@ Now use it:
     >>> add_integer(8.762378691696962, 5)
     13
 
-    >>> add_integer(float("nan")) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    ValueError: cannot convert float NaN to integer
+    >>> add_integer(float("nan")):
+    
