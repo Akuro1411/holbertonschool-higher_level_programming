@@ -51,10 +51,10 @@ Now use it:
     >>> add_integer(int("5"), int("15"))
     20
 
-    >>> add_integer(1.3407807929942597e+154 ** 2) # doctest: +ELLIPSIS
+    >>> add_integer(float("inf")) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    OverflowError: (34, 'Numerical result out of range')
+    OverflowError: cannot convert float infinity to integer
 
 
     >>> add_integer(8.762378691696962, 5)
