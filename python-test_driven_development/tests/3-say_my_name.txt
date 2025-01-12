@@ -14,11 +14,6 @@ Now use it:
     >>> say_my_name("John", "Smith")
     My name is John Smith
 
-    >>> say_my_name("John", 5) # doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: first_name must be a string or last_name must be a string
-
     >>> say_my_name("John") # doctest: +NORMALIZE_WHITESPACE
     My name is John
 
@@ -35,9 +30,9 @@ Note: There is an empty string for default value of last_name, in order to handl
     >>> say_my_name("Bob", 12) # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    TypeError: first_name must be a string or last_name must be a string
+    TypeError: last_name must be a string
 
     >>> say_my_name(12, "Leon") # doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
-    TypeError: first_name must be a string or last_name must be a string
+    TypeError: first_name must be a string
