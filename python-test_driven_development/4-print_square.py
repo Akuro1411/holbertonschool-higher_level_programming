@@ -13,6 +13,9 @@ def print_square(size):
     elif size < 0:
         raise ValueError("size must be >= 0")
 
+    elif size == 0:
+        return
+
     square = ""
     for edge in range(size):
         square += '#' * size
