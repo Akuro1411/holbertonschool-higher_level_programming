@@ -28,3 +28,4 @@ Now use it:
 
     >>> text_indentation("\n")
     <BLANKLINE>
+
