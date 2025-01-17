@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """No module is imported"""
 
+
 def text_indentation(text):
     """Function prints text line byline"""
     if type(text) is not str:
@@ -10,8 +11,8 @@ def text_indentation(text):
         if text[i] in ["?", ".", ":"]:
             print(text[i], end="")
             print('\n')
-            if i + 1 < len(text) and text[i + 1] == " ":
-                i += 2
+            while i + 1 < len(text) and text[i + 1] == " ":
+                i += 1
                 continue
         else:
             print(text[i], end="")
