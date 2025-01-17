@@ -26,6 +26,5 @@ Now use it:
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
 
-    >>> text_indentation("\n")
+    >>> text_indentation(" ")
     <BLANKLINE>
-
