@@ -23,6 +23,18 @@ class TestMaxInteger(unittest.TestCase):
         for element in arr:
             self.assertEqual(type(element), int)
 
+    def test_5_one_negative(self):
+        arr = [1, 2, -3, 4, 5]
+        self.assertEqual(max_integer(arr), 5)
+
+    def test_6_all_negative(self):
+        arr = [-5, -4, -3, -2, -1]
+        self.assertEqual(max_integer(arr), -1)
+
+    def test_6_single_element(self):
+        arr = [4]
+        self.assertEqual(max_integer(arr), 4)
+        
 
 if __name__ == "__main__":
     unittest.main()
