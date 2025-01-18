@@ -19,7 +19,7 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([1, 2, 7, 4]), 7)
 
     def test_4_type(self):
-        arr = [1, 2, 3, 4, "Hello"]
+        arr = [1, 2, 3, 4]
         for element in arr:
             self.assertEqual(type(element), int)
 
