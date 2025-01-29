@@ -1,0 +1,2 @@
+Welcome to Docker!
+l modified this file for learning the layer architecture of docker
