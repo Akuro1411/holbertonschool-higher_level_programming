@@ -1,0 +1,15 @@
+name: Educational Github Action
+on: [push]
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run:  docker build -f doc/Dockerfile -t ghcr.io/akuro1411/doc-image:latest . # This command is running on above the Dockerfile's in order to avoid security issues.
+      - 
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{secrets.CR_PAT}}
+      - run: docker push ghcr.io/akuro1411/doc-image:latest
