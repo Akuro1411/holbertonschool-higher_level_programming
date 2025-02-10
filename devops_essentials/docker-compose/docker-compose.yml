@@ -23,6 +23,7 @@ services:
         PGADMIN_DEFAULT_PASSWORD: verystrongpass
       networks:
         - admin_network
+        - db_network
 networks:
     db_network:
     admin_network:
