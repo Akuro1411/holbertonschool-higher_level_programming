@@ -2,13 +2,14 @@ services:
     db:
       image: postgres
       restart: always
-      shm_size: 256mb
       environment:
         POSTGRES_USER: nahid
         POSTGRES_PASSWORD: fakepassword
         POSTGRES_DB: database
       networks:
         - db_network
+      volumes:
+        - db_data:/var/lib/postgres
     admin:
       image: dpage/pgadmin4
       restart: always
@@ -24,3 +25,6 @@ services:
 
 networks:
     db_network:
+
+volumes:
+    db_data:
